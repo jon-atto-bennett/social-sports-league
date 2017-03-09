@@ -7,9 +7,9 @@ module.exports = {
 }
 
 function get (req, res) {
-  db.getUsers()
-    .then(function (users) {
-      res.render('index', { users: users })
+  db.getTeams()
+    .then(function (teams) {
+      res.render('index', { teams: teams })
     })
     .catch(function (err) {
       res.status(500).send('DATABASE ERROR: ' + err.message)

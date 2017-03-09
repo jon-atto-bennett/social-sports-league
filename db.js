@@ -3,17 +3,18 @@ var config = require('./knexfile')[environment]
 var connection = require('knex')(config)
 
 module.exports = {
-  getUser: getUser,
-  getUsers: getUsers
+  getTeam: getTeam,
+  getTeams: getTeams
 }
 
-function getUsers (testDb) {
+function getTeams (testDb) {
   // Use a test database if one is passed in, or the connection defined above.
   var db = testDb || connection
-  return db('users').select()
+  return db('teams').select()
+
 }
 
-function getUser (id, testDb) {
+function getTeam (id, testDb) {
   var db = testDb || connection
-  return db('users').where('id', id)
+  return db('Teams').where('team_id', id)
 }
